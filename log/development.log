@@ -3130,3 +3130,33 @@ Completed 200 OK in 266ms (Views: 168.0ms | ActiveRecord: 0.0ms)
   [1m[36mAdminUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'admin@example.com' LIMIT 1[0m
   [1m[35mSQL (0.4ms)[0m  INSERT INTO "admin_users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "admin@example.com"], ["encrypted_password", "$2a$10$JgSioA8QcRM3SWKNumqj1eVTOzHFEq67fiLRbYTFOU4u/3B/kCmHK"], ["created_at", "2018-02-08 23:24:09.581389"], ["updated_at", "2018-02-08 23:24:09.581389"]]
   [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/admin/" for 174.63.85.247 at 2018-02-08 23:24:18 +0000
+Cannot render console from 174.63.85.247! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 25ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 174.63.85.247 at 2018-02-08 23:24:18 +0000
+Cannot render console from 174.63.85.247! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-5408b9faf46e/app/views/active_admin/devise/shared/_links.erb (7.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-5408b9faf46e/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (106.5ms)
+Completed 200 OK in 871ms (Views: 811.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/admin/login" for 174.63.85.247 at 2018-02-08 23:24:32 +0000
+Cannot render console from 174.63.85.247! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AmkZQQN2VWIWjm+mRrLAwLiQ+frFuIartnLsQsUppWBIsRhEyI2sc+cvlxoQGI6Uvf2hh0l4xFSfVhMdVCqzmg==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1  [["email", "admin@example.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE "admin_users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admin_users"."id" = ?  [["last_sign_in_at", "2018-02-08 23:24:33.050460"], ["current_sign_in_at", "2018-02-08 23:24:33.050460"], ["last_sign_in_ip", "174.63.85.247"], ["current_sign_in_ip", "174.63.85.247"], ["sign_in_count", 1], ["updated_at", "2018-02-08 23:24:33.051732"], ["id", 1]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://67.205.188.72:43765/admin
+Completed 302 Found in 161ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/admin" for 174.63.85.247 at 2018-02-08 23:24:33 +0000
